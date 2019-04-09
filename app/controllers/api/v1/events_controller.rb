@@ -17,7 +17,7 @@ class Api::V1::EventsController < ApplicationController
   private
 
   def event_params
-    params.permit(:title, :content)
+    params.permit(:date, :time, :name, :location, :address, :url, :imgurl)
   end
 
   def find_event
