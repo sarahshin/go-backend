@@ -1,5 +1,5 @@
 class Api::V1::UserTripsController < ApplicationController
-  before_action :find_user_trip, only: [:update]
+  before_action :find_user_trip, only: [:update, :destroy]
 
   def create
     @user_trip = UserTrip.new(user_trip_params)
@@ -22,6 +22,11 @@ class Api::V1::UserTripsController < ApplicationController
     else
       render json: { errors: @user_trip.errors.full_messages }, status: :unprocessible_entity
     end
+  end
+
+  def destroy
+    @user_trip.destroy
+    render body: nil, status: :no_content
   end
 
   private

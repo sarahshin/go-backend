@@ -39,7 +39,7 @@ class Api::V1::YelpController < ApplicationController
     render json: results
   end
 
-  def souvenirsSearch
+  def souvenirSearch
     search_term = params[:searchTerm]
     search_location = params[:location]
     response = RestClient::Request.execute(
@@ -51,12 +51,24 @@ class Api::V1::YelpController < ApplicationController
     render json: results
   end
 
-  def toursSearch
+  def tourSearch
     search_term = params[:searchTerm]
     search_location = params[:location]
     response = RestClient::Request.execute(
       method: "GET",
       url: "https://api.yelp.com/v3/businesses/search?location=#{search_location}&term=#{search_term}&categories=tours&limit=50",
+      headers: {Authorization: "Bearer MafaqqGSRpsrVijZ3-ni4Jc_4u3Ixf-3_9hUQ3F6gmXOGR-PDQWIM9EGtdtHgMXaQBFB3Rtd0pR8gfZAFaFKDvyi5e7El9_Vvn2iXv_Dl7Y3AQbSisPMmyUlO2-jXHYx"}
+    )
+    results = JSON.parse(response)
+    render json: results
+  end
+
+  def hotelSearch
+    search_term = params[:searchTerm]
+    search_location = params[:location]
+    response = RestClient::Request.execute(
+      method: "GET",
+      url: "https://api.yelp.com/v3/businesses/search?location=#{search_location}&term=#{search_term}&categories=hotels,hostels,bedbreakfast,campground&limit=50",
       headers: {Authorization: "Bearer MafaqqGSRpsrVijZ3-ni4Jc_4u3Ixf-3_9hUQ3F6gmXOGR-PDQWIM9EGtdtHgMXaQBFB3Rtd0pR8gfZAFaFKDvyi5e7El9_Vvn2iXv_Dl7Y3AQbSisPMmyUlO2-jXHYx"}
     )
     results = JSON.parse(response)
