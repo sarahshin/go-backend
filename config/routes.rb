@@ -4,9 +4,10 @@ Rails.application.routes.draw do
       resources :events, :users, :trips, :user_trips
       post '/restaurant_search', to: 'yelp#restaurantSearch'
       post '/nightlife_search', to: 'yelp#nightlifeSearch'
-      post '/souvenirs_search', to: 'yelp#souvenirsSearch'
+      post '/souvenir_search', to: 'yelp#souvenirSearch'
       post '/arts_search', to: 'yelp#artsSearch'
-      post '/tours_search', to: 'yelp#toursSearch'
+      post '/tour_search', to: 'yelp#tourSearch'
+      post '/hotel_search', to: 'yelp#hotelSearch'
     end
   end
 end
