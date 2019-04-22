@@ -13,10 +13,3 @@ Event.destroy_all
 
 User.create(firstname: "Sarah", lastname: "Shin", email: "sarah.shin@flatironschool.com", password:"123")
 User.create(firstname: "Janet", lastname: "Shin", email: "janet.shin@flatironschool.com", password:"123")
-
-# Trip.create(location:"Lisbon, Portugal", startdate: "May 1, 2019", enddate: "May 4, 2019")
-#
-# UserTrip.create(user_id: 1, trip_id: 1)
-#
-# Event.create(date: "May 1, 2019", time: "10:00 AM", user_trip_id: 1, name: "something", address: "somewhere", url:"blahblah.com", imgurl:"blah.jpg")
-# Event.create(date: "May 2, 2019", time: "2:00 PM", user_trip_id: 1, name: "something", address: "somewhere", url:"blahblah.com", imgurl:"blah.jpg")
